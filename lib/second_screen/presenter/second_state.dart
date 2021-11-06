@@ -1,6 +1,23 @@
 part of 'second_bloc.dart';
 
 @immutable
-abstract class SecondState {}
+abstract class SecondState {
+  int mainValue;
 
-class SecondInitial extends SecondState {}
+  SecondState(this.mainValue);
+
+  @override
+  List<Object> get props => [mainValue];
+}
+
+class SecondInitial extends SecondState{
+  SecondInitial(int mainValue) : super(mainValue);
+}
+
+class IncrementState extends SecondState {
+  IncrementState(int mainValue) : super(mainValue);
+}
+
+class DecrementState extends SecondState {
+  DecrementState(int mainValue) : super(mainValue);
+}

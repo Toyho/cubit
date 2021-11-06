@@ -21,23 +21,26 @@ class FirstScreen extends StatelessWidget {
             const Text(
               'You have pushed the button this many times:',
             ),
-            BlocConsumer<MainCubit, MainState>(
-                builder: (context, state) {
-                  return Text(
-                    state.mainValue.toString(),
-                    style: Theme.of(context).textTheme.headline4,
-                  );
-                },
-                listener: (context, state) {
-                  if (state.isIncrementNumber == true) {
-                    Scaffold.of(context).showSnackBar(const SnackBar(content: Text("Increment"), duration: Duration(microseconds: 300),));
-                  } else if (state.isIncrementNumber == false) {
-                    Scaffold.of(context).showSnackBar(const SnackBar(content: Text("Decrement"), duration: Duration(microseconds: 300)));
-                  }
-                  if (state.mainValue % 5 == 0) {
-                    Navigator.pushNamed(context, "/secondScreen");
-                  }
-                }),
+            BlocConsumer<MainCubit, MainState>(builder: (context, state) {
+              return Text(
+                state.mainValue.toString(),
+                style: Theme.of(context).textTheme.headline4,
+              );
+            }, listener: (context, state) {
+              if (state.isIncrementNumber == true) {
+                Scaffold.of(context).showSnackBar(const SnackBar(
+                  content: Text("Increment"),
+                  duration: Duration(microseconds: 300),
+                ));
+              } else if (state.isIncrementNumber == false) {
+                Scaffold.of(context).showSnackBar(const SnackBar(
+                    content: Text("Decrement"),
+                    duration: Duration(microseconds: 300)));
+              }
+              if (state.mainValue % 5 == 0) {
+                Navigator.pushNamed(context, "/secondScreen");
+              }
+            }),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
