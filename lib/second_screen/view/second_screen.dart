@@ -27,6 +27,9 @@ class SecondScreen extends StatelessWidget {
                   content: Text("Decrement"),
                   duration: Duration(microseconds: 300)));
             }
+            if (state.mainValue == 3) {
+              Navigator.pushNamed(context, '/thirdScreen');
+            }
           },
           builder: (context, state) {
             return Center(

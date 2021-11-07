@@ -1,5 +1,6 @@
 import 'package:cubit/first_screen/first_screen.dart';
 import 'package:cubit/second_screen/view/second_screen.dart';
+import 'package:cubit/third_screen/view/third_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {
@@ -19,6 +20,13 @@ class AppRouter {
           return MaterialPageRoute(
             builder: (_) =>
                 const SecondScreen(),
+          );
+        }
+      case "/thirdScreen":
+        {
+          return MaterialPageRoute(
+            builder: (_) =>
+                const ThirdScreen(),
           );
         }
       default:

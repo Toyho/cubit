@@ -1,12 +1,12 @@
-class Second_model {
-  Second_model({
+class ThirdModel {
+  ThirdModel({
       Info? info, 
       List<Results>? results,}){
     _info = info;
     _results = results;
 }
 
-  Second_model.fromJson(dynamic json) {
+  ThirdModel.fromJson(dynamic json) {
     _info = json['info'] != null ? Info.fromJson(json['info']) : null;
     if (json['results'] != null) {
       _results = [];
