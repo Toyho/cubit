@@ -4,7 +4,7 @@ enum PostStatus { initial, success, failure }
 
 @immutable
 
-class ThirdState{
+class ThirdState extends Equatable{
 
   const ThirdState({
     this.status = PostStatus.initial,
@@ -31,5 +31,8 @@ class ThirdState{
       currentPage: currentPage!,
     );
   }
+
+  @override
+  List<Object?> get props => [status, posts, hasReachedMax];
 
 }

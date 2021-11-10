@@ -1,10 +1,13 @@
-class ThirdModel {
+import 'package:equatable/equatable.dart';
+
+class ThirdModel extends Equatable {
   ThirdModel({
-      Info? info, 
-      List<Results>? results,}){
+    Info? info,
+    List<Results>? results,
+  }) {
     _info = info;
     _results = results;
-}
+  }
 
   ThirdModel.fromJson(dynamic json) {
     _info = json['info'] != null ? Info.fromJson(json['info']) : null;
@@ -15,10 +18,12 @@ class ThirdModel {
       });
     }
   }
+
   Info? _info;
   List<Results>? _results;
 
   Info? get info => _info;
+
   List<Results>? get results => _results;
 
   Map<String, dynamic> toJson() {
@@ -32,22 +37,25 @@ class ThirdModel {
     return map;
   }
 
+  @override
+  List<Object?> get props => [_info, _results];
 }
 
-class Results {
+class Results extends Equatable {
   Results({
-      int? id, 
-      String? name, 
-      String? status, 
-      String? species, 
-      String? type, 
-      String? gender, 
-      Origin? origin, 
-      Location? location, 
-      String? image, 
-      List<String>? episode, 
-      String? url, 
-      String? created,}){
+    int? id,
+    String? name,
+    String? status,
+    String? species,
+    String? type,
+    String? gender,
+    Origin? origin,
+    Location? location,
+    String? image,
+    List<String>? episode,
+    String? url,
+    String? created,
+  }) {
     _id = id;
     _name = name;
     _status = status;
@@ -60,7 +68,7 @@ class Results {
     _episode = episode;
     _url = url;
     _created = created;
-}
+  }
 
   Results.fromJson(dynamic json) {
     _id = json['id'];
@@ -70,12 +78,14 @@ class Results {
     _type = json['type'];
     _gender = json['gender'];
     _origin = json['origin'] != null ? Origin.fromJson(json['origin']) : null;
-    _location = json['location'] != null ? Location.fromJson(json['location']) : null;
+    _location =
+        json['location'] != null ? Location.fromJson(json['location']) : null;
     _image = json['image'];
     _episode = json['episode'] != null ? json['episode'].cast<String>() : [];
     _url = json['url'];
     _created = json['created'];
   }
+
   int? _id;
   String? _name;
   String? _status;
@@ -90,16 +100,27 @@ class Results {
   String? _created;
 
   int? get id => _id;
+
   String? get name => _name;
+
   String? get status => _status;
+
   String? get species => _species;
+
   String? get type => _type;
+
   String? get gender => _gender;
+
   Origin? get origin => _origin;
+
   Location? get location => _location;
+
   String? get image => _image;
+
   List<String>? get episode => _episode;
+
   String? get url => _url;
+
   String? get created => _created;
 
   Map<String, dynamic> toJson() {
@@ -123,24 +144,42 @@ class Results {
     return map;
   }
 
+  @override
+  List<Object?> get props => [
+        id,
+        name,
+        status,
+        species,
+        type,
+        gender,
+        origin,
+        location,
+        image,
+        episode,
+        url,
+        created
+      ];
 }
 
 class Location {
   Location({
-      String? name, 
-      String? url,}){
+    String? name,
+    String? url,
+  }) {
     _name = name;
     _url = url;
-}
+  }
 
   Location.fromJson(dynamic json) {
     _name = json['name'];
     _url = json['url'];
   }
+
   String? _name;
   String? _url;
 
   String? get name => _name;
+
   String? get url => _url;
 
   Map<String, dynamic> toJson() {
@@ -149,25 +188,27 @@ class Location {
     map['url'] = _url;
     return map;
   }
-
 }
 
 class Origin {
   Origin({
-      String? name, 
-      String? url,}){
+    String? name,
+    String? url,
+  }) {
     _name = name;
     _url = url;
-}
+  }
 
   Origin.fromJson(dynamic json) {
     _name = json['name'];
     _url = json['url'];
   }
+
   String? _name;
   String? _url;
 
   String? get name => _name;
+
   String? get url => _url;
 
   Map<String, dynamic> toJson() {
@@ -176,20 +217,20 @@ class Origin {
     map['url'] = _url;
     return map;
   }
-
 }
 
 class Info {
   Info({
-      int? count, 
-      int? pages, 
-      String? next, 
-      String? prev,}){
+    int? count,
+    int? pages,
+    String? next,
+    String? prev,
+  }) {
     _count = count;
     _pages = pages;
     _next = next;
     _prev = prev;
-}
+  }
 
   Info.fromJson(dynamic json) {
     _count = json['count'];
@@ -197,14 +238,18 @@ class Info {
     _next = json['next'];
     _prev = json['prev'];
   }
+
   int? _count;
   int? _pages;
   String? _next;
   String? _prev;
 
   int? get count => _count;
+
   int? get pages => _pages;
+
   String? get next => _next;
+
   String? get prev => _prev;
 
   Map<String, dynamic> toJson() {
@@ -215,5 +260,4 @@ class Info {
     map['prev'] = _prev;
     return map;
   }
-
 }

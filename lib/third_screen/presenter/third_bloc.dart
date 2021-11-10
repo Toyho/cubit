@@ -1,10 +1,9 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:cubit/third_screen/api/third_api.dart';
 import 'package:cubit/third_screen/entity/third_model.dart';
 import 'package:cubit/third_screen/repository/third_repository.dart';
-import 'package:dio/dio.dart';
+import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 
 part 'third_event.dart';
