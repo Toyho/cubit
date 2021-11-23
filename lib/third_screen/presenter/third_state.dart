@@ -3,7 +3,7 @@ part of 'third_bloc.dart';
 enum PostStatus { initial, success, failure }
 
 @immutable
-
+@JsonSerializable()
 class ThirdState extends Equatable{
 
   const ThirdState({
@@ -34,5 +34,10 @@ class ThirdState extends Equatable{
 
   @override
   List<Object?> get props => [status, posts, hasReachedMax];
+
+  factory ThirdState.fromJson(Map<String, dynamic> json) =>
+      _$ThirdStateFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ThirdStateToJson(this);
 
 }

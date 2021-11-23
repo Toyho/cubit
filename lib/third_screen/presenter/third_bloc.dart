@@ -4,12 +4,15 @@ import 'package:bloc/bloc.dart';
 import 'package:cubit/third_screen/entity/third_model.dart';
 import 'package:cubit/third_screen/repository/third_repository.dart';
 import 'package:equatable/equatable.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:meta/meta.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'third_event.dart';
 part 'third_state.dart';
+part 'third_bloc.g.dart';
 
-class ThirdBloc extends Bloc<ThirdEvent, ThirdState> {
+class ThirdBloc extends HydratedBloc<ThirdEvent, ThirdState> {
 
   ThirdBloc() : super(const ThirdState()) {
     on<PostFetched>(_onPostFetched);
@@ -41,4 +44,10 @@ class ThirdBloc extends Bloc<ThirdEvent, ThirdState> {
       emit(state.copyWith(status: PostStatus.failure));
     }
   }
+
+  @override
+  ThirdState? fromJson(Map<String, dynamic> json) => ThirdState.fromJson(json);
+
+  @override
+  Map<String, dynamic>? toJson(ThirdState state) => state.toJson();
 }
