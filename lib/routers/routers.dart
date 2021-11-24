@@ -1,4 +1,5 @@
 import 'package:cubit/first_screen/first_screen.dart';
+import 'package:cubit/four_screen/view/four_screen.dart';
 import 'package:cubit/second_screen/presenter/second_bloc.dart';
 import 'package:cubit/second_screen/view/second_screen.dart';
 import 'package:cubit/third_screen/view/third_screen.dart';
@@ -33,6 +34,15 @@ class AppRouter {
             builder: (_) => BlocProvider.value(
               value: _secondBloc,
               child: const ThirdScreen(),
+            ),
+          );
+        }
+      case "/fourScreen":
+        {
+          return MaterialPageRoute(
+            builder: (_) => BlocProvider.value(
+              value: _secondBloc,
+              child: const FourScreen(),
             ),
           );
         }

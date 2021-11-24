@@ -40,6 +40,9 @@ class FirstScreen extends StatelessWidget {
               if (state.mainValue % 5 == 0) {
                 Navigator.pushNamed(context, "/secondScreen");
               }
+              if (state.mainValue % 7 == 0) {
+                Navigator.pushNamed(context, "/fourScreen");
+              }
             }),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
